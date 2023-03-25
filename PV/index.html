@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script>
+      document.addEventListener("keydown", function(e) {
+    if (e.keyCode == 123) {
+      e.preventDefault();
+      }
+
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+      e.preventDefault();
+      }
+    }, false);
+
+      document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    }, false);
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <title>TITULO DA PÁGINA</title> <!--ESCREVA O TITULO DA PÁGINA AQUI-->
+    <link href="./assets/css/com.css"/>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./assets/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/com.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+                  <!--HEADLINE E SUBHEADLINE-->
+    <header class="text-center">HEADLINE</header>
+    <h2 class=>Sub-headline</h2>
+    
+    <div id="player-wrapper">
+      <div id="player"></div>
+    </div>
+    
+    <div id="secao1">
+      <script>
+        var player;
+        var button;
+        var done = false;
+            function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: 'LrWrfLFm9gg', //SEU ID DO VIDEO AQUI
+          playerVars: {
+            'controls': 0,
+            'disablekb': 1,
+            'modestbranding': 1,
+            'rel': 0,
+            'showinfo': 0,
+            'iv_load_policy': 3
+              },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+              }
+          });
+        }
+    
+      function onPlayerReady(event) {
+        event.target.playVideo();
+        button = document.getElementById("button");
+        }
+
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(checkTime, 3000);//DELAY 1 - ALTERE AQUI, EM MILISEGUNDOS
+          done = true;
+          }
+        }
+
+      function checkTime() {
+        var currentTime = player.getCurrentTime();
+      
+        if (currentTime >= 3)  {//DELAY 2 - ALTERE AQUI, EM SEGUNDOS
+        button.style.display = "block";
+          } else {
+          setTimeout(checkTime, 100);
+          }
+        }
+
+      function playVideo() {
+      player.playVideo();
+      button.style.display = "none";
+        }
+
+      function stopVideo() {
+        player.pauseVideo();
+      
+        if (player.getCurrentTime() >= 3) {//DELAY 3 - ALTERE AQUI, EM SEGUNDOS
+          button.style.display = "block";
+        }
+      }
+    </script>
+
+    <div id="player-wrapper">
+      <div id="player"></div>
+    </div>
+      <script src="https://www.youtube.com/iframe_api"></script>
+    </div>
+
+    <div id="view">
+  
+      <style>
+      div.a {
+        font-size: 16px;
+      }
+
+      div.b {
+        font-size: large;
+      }
+
+      div.c {
+        font-size: 150%;
+      }
+      </style>
+
+    <body>
+      <h1></h1>
+
+      <div class="a">
+        <center>
+          <span style="color: #000;">🟢<span id="number"></span><span style="color: #000;"> assistindo agora</span>
+          <script>
+            let number = Math.floor(Math.random() * 50) + 550;
+            document.getElementById("number").innerHTML = number;
+
+            function updateNumber() {
+              let prob = Math.random();
+              let delta = 0;
+
+              if (prob > 0.5) {
+                // aumenta
+                delta = Math.floor(Math.random() * 4) + 2;
+              } else {
+              // diminui
+                delta = -1 * Math.floor(Math.random() * 3) + 1;
+              }
+
+              number += delta;
+
+              document.getElementById("number").innerHTML = number;
+              setTimeout(updateNumber, 3000);
+            }
+
+            updateNumber();
+          </script>
+        </center>
+      </div>
+    </body> </div>
+
+    <div id="secao2">
+  <!--SEÇÃO 2-->
+      <a href="https://checkout.com" target="_blank" class="button-link">
+        <button id="button" style="display:none;">CTA FODA</button> <!--ALTERE O NOME DO BOTÃO AQUI-->
+      </a>
+    </div>
+
+    <div id="secao3">
+  
+      <div class="secao3">
+    
+        <h2>CONTEÚDO</h2> <!-- AQUI VOCÊ TEM UMA SEÇÃO PARA ADICIONAR O CONTEUDO QUE DESEJA-->
+
+      </div>
+    </div>
+
+    <div id="legal-wrapper">
+      <a href="termos.html">Termos de Uso</a>
+      <a href="privacidade.html">Privacidade</a>
+    </div>
+  </body>
+</html>
